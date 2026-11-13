@@ -1,0 +1,53 @@
+{
+  "name": "quantify",
+  "private": true,
+  "version": "0.1.0",
+  "description": "AI Trading Strategy Lab - describe, validate, backtest, analyze",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bash scripts/dev.sh",
+    "build": "bash scripts/build.sh",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "db:migrate": "bun run scripts/migrate.ts",
+    "db:seed": "bun run scripts/seed.ts",
+    "data:prefetch": "bun run scripts/prefetch-market-data.ts",
+    "data:verify": "bun run scripts/verify-market-data.ts",
+    "ai:preflight": "bun run scripts/ai-preflight.ts",
+    "ai:acceptance": "bun run scripts/ai-acceptance.ts",
+    "demo:fixture": "bun run scripts/demo-fixture.ts",
+    "load:test": "bun run scripts/load-test.ts",
+    "design:check": "bun run scripts/design-check.ts",
+    "failure:drill": "bun run scripts/failure-drill.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.4",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4",
+    "@quantify/ai": "workspace:*",
+    "@quantify/auth": "workspace:*",
+    "@quantify/backtest-engine": "workspace:*",
+    "@quantify/backtest-runner": "workspace:*",
+    "@quantify/config": "workspace:*",
+    "@quantify/contracts": "workspace:*",
+    "@quantify/db": "workspace:*",
+    "@quantify/indicators": "workspace:*",
+    "@quantify/market-data": "workspace:*",
+    "@quantify/performance": "workspace:*",
+    "@quantify/strategy-compiler": "workspace:*",
+    "@quantify/strategy-spec": "workspace:*"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

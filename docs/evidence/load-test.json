@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-11-12T17:04:33.210Z",
+  "profile": {
+    "users": 45,
+    "concurrency": 10,
+    "workerConcurrency": 2,
+    "maxCandles": 20000,
+    "pollingIntervalMs": 1500,
+    "backtestRange": {
+      "initialCapital": 10000000,
+      "startTime": "2025-01-01T00:00:00.000Z",
+      "endTime": "2025-07-01T00:00:00.000Z",
+      "feeRateBps": 20,
+      "slippageBps": 5,
+      "executionTiming": "next_candle_open"
+    },
+    "mode": "in-process Hono app + PGlite + fixture data",
+    "note": "Measures application, engine, and database work without TLS/network. Rate limits are disabled for the capacity run; they are covered by integration tests."
+  },
+  "durationMs": 72811,
+  "requests": 270,
+  "failures": 0,
+  "errorRate": 0,
+  "completedBacktests": 45,
+  "summary": {
+    "create_strategy": {
+      "count": 45,
+      "p50": 101,
+      "p95": 705,
+      "p99": 742,
+      "max": 742
+    },
+    "save_version": {
+      "count": 45,
+      "p50": 347,
+      "p95": 1179,
+      "p99": 1242,
+      "max": 1242
+    },
+    "generate": {
+      "count": 45,
+      "p50": 246,
+      "p95": 861,
+      "p99": 908,
+      "max": 908
+    },
+    "backtest_submit": {
+      "count": 45,
+      "p50": 10288,
+      "p95": 17462,
+      "p99": 17467,
+      "max": 17467
+    },
+    "backtest_result": {
+      "count": 45,
+      "p50": 194,
+      "p95": 516,
+      "p99": 536,
+      "max": 536
+    },
+    "strategies_list": {
+      "count": 45,
+      "p50": 120,
+      "p95": 393,
+      "p99": 435,
+      "max": 435
+    }
+  },
+  "backtestP95Ms": 17462,
+  "apiP95Ms": 1179,
+  "thresholds": {
+    "errorRate": 0,
+    "backtestP95Ms": 60000,
+    "apiP95Ms": 1500
+  },
+  "passed": true
+}

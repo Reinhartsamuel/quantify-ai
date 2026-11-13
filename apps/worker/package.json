@@ -1,0 +1,17 @@
+{
+  "name": "@quantify/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "build": "bun build src/index.ts --target=bun --outdir=dist"
+  },
+  "dependencies": {
+    "@quantify/backtest-runner": "workspace:*",
+    "@quantify/config": "workspace:*",
+    "@quantify/db": "workspace:*",
+    "@quantify/market-data": "workspace:*"
+  }
+}

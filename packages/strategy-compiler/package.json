@@ -1,0 +1,14 @@
+{
+  "name": "@quantify/strategy-compiler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@quantify/indicators": "workspace:*",
+    "@quantify/market-data": "workspace:*",
+    "@quantify/strategy-spec": "workspace:*"
+  }
+}

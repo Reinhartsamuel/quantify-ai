@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-11-12T18:39:46.429Z",
+  "template": "rsi-mean-reversion",
+  "strategy": "BTC RSI 14 mean reversion",
+  "symbol": "BTC/IDR",
+  "timeframe": "1h",
+  "range": {
+    "from": "2025-01-01T00:00:00.000Z",
+    "to": "2025-07-01T00:00:00.000Z"
+  },
+  "config": {
+    "initialCapital": 10000000,
+    "startTime": "2025-01-01T00:00:00.000Z",
+    "endTime": "2025-07-01T00:00:00.000Z",
+    "feeRateBps": 20,
+    "slippageBps": 5,
+    "executionTiming": "next_candle_open"
+  },
+  "fixture": {
+    "candleCount": 4344,
+    "candleHash": "8e3ac293b395eff691688b91b587548585a887f5fa8cb8c0b4ea7680279dbaf5",
+    "manifest": {
+      "provider": "fixture",
+      "endpoint": "fixture://workshop-snapshot",
+      "symbol": "BTC/IDR",
+      "timeframe": "1h",
+      "requestedFrom": "2025-01-01T00:00:00.000Z",
+      "requestedTo": "2025-07-01T00:00:00.000Z",
+      "fetchedAt": "2026-11-12T15:08:44.962Z",
+      "candleCount": 4344,
+      "firstTimestamp": 1735689600000,
+      "lastTimestamp": 1751324400000,
+      "sha256": "8e3ac293b395eff691688b91b587548585a887f5fa8cb8c0b4ea7680279dbaf5",
+      "gaps": 0,
+      "maxGapCandles": 0,
+      "zeroVolumeCandles": 8
+    },
+    "summary": {
+      "initialCapital": 10000000,
+      "endingEquity": 10282417.66960409,
+      "netReturnPct": 2.824176696040892,
+      "maxDrawdownPct": 16.653215734415124,
+      "winRatePct": 60.86956521739131,
+      "totalTrades": 23,
+      "profitFactor": 1.0734767917727093,
+      "averageTradeReturnPct": 0.24321381121382063
+    },
+    "trades": 23,
+    "contentHash": "b6af51c316a79de54339255e2c8198158ebd5ba0bc8a2be00bb54eb81971a844",
+    "outputHash": "0959ab2dbe5f7f4c65c56c18008d8338df7dc28bf062e343fb77f61f7956a436",
+    "deterministic": true
+  },
+  "live": {
+    "ran": true,
+    "candleHash": "8e3ac293b395eff691688b91b587548585a887f5fa8cb8c0b4ea7680279dbaf5",
+    "contentHash": "b6af51c316a79de54339255e2c8198158ebd5ba0bc8a2be00bb54eb81971a844",
+    "identicalCandles": true,
+    "identicalOutput": true,
+    "liveReturnPct": 2.824176696040892
+  },
+  "identicalOutput": true,
+  "expected": {
+    "netReturnPct": 2.824176696040892,
+    "maxDrawdownPct": 16.653215734415124,
+    "totalTrades": 23,
+    "endingEquity": 10282417.66960409
+  }
+}

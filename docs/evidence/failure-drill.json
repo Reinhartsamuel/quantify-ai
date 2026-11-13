@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-11-12T18:31:27.681Z",
+  "jobId": "5b74ec06-da9d-4e67-bc3e-efa3b372e977",
+  "passed": true,
+  "results": [
+    {
+      "scenario": "provider_429",
+      "expected": "FAILED with retryable safe code",
+      "pass": true,
+      "observed": {
+        "failed": {
+          "status": "failed",
+          "jobId": "5b74ec06-da9d-4e67-bc3e-efa3b372e977",
+          "code": "RATE_LIMITED",
+          "message": "Indodax rate limit reached. Retrying shortly.",
+          "retryable": true
+        },
+        "status": "FAILED",
+        "code": "RATE_LIMITED"
+      }
+    },
+    {
+      "scenario": "retry_after_transient",
+      "expected": "COMPLETED with result",
+      "pass": true,
+      "observed": {
+        "retried": {
+          "status": "completed",
+          "jobId": "5b74ec06-da9d-4e67-bc3e-efa3b372e977",
+          "outputHash": "602f2af3a7333d4a6e677850a5cd3cb38f8cc6240b0b45a0e72c426b29a69112"
+        },
+        "status": "COMPLETED",
+        "outputHash": "602f2af3a7333d4a6e677850a5cd3cb38f8cc6240b0b45a0e72c426b29a69112"
+      }
+    },
+    {
+      "scenario": "worker_restart_stale_lock",
+      "expected": "stale RUNNING job requeued and reclaimable",
+      "pass": true,
+      "observed": {
+        "claimed": "74fb122c-82be-4127-97ec-6d6789a0d3f0",
+        "recovered": 1,
+        "reclaimed": "74fb122c-82be-4127-97ec-6d6789a0d3f0"
+      }
+    },
+    {
+      "scenario": "queue_max_attempts",
+      "expected": "failed after max attempts",
+      "pass": true,
+      "observed": {
+        "retryOutcome": "failed"
+      }
+    },
+    {
+      "scenario": "ai_5xx",
+      "expected": "fallback template (AI_PROVIDER_UNAVAILABLE)",
+      "pass": true,
+      "observed": {
+        "status": "ok",
+        "meta": {
+          "provider": "template",
+          "model": null,
+          "latencyMs": 143,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "fallback": true,
+          "fallbackReason": "AI_PROVIDER_UNAVAILABLE"
+        }
+      }
+    },
+    {
+      "scenario": "ai_429",
+      "expected": "fallback template (AI_RATE_LIMITED)",
+      "pass": true,
+      "observed": {
+        "status": "ok",
+        "meta": {
+          "provider": "template",
+          "model": null,
+          "latencyMs": 61,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "fallback": true,
+          "fallbackReason": "AI_RATE_LIMITED"
+        }
+      }
+    },
+    {
+      "scenario": "ai_timeout",
+      "expected": "fallback template (AI_TIMEOUT)",
+      "pass": true,
+      "observed": {
+        "status": "ok",
+        "meta": {
+          "provider": "template",
+          "model": null,
+          "latencyMs": 37,
+          "promptTokens": 0,
+          "completionTokens": 0,
+          "fallback": true,
+          "fallbackReason": "AI_TIMEOUT"
+        }
+      }
+    }
+  ],
+  "pendingStagingDrills": [
+    "Postgres restart with API/worker reconnect and /api/ready 503→200",
+    "Caddy reload/TLS renewal",
+    "Offsite backup restore"
+  ]
+}

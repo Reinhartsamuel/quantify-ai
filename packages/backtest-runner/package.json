@@ -1,0 +1,16 @@
+{
+  "name": "@quantify/backtest-runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@quantify/backtest-engine": "workspace:*",
+    "@quantify/config": "workspace:*",
+    "@quantify/db": "workspace:*",
+    "@quantify/market-data": "workspace:*",
+    "@quantify/strategy-spec": "workspace:*"
+  }
+}

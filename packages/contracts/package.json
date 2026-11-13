@@ -1,0 +1,15 @@
+{
+  "name": "@quantify/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@quantify/backtest-engine": "workspace:*",
+    "@quantify/config": "workspace:*",
+    "@quantify/strategy-spec": "workspace:*",
+    "zod": "^3.25.76"
+  }
+}

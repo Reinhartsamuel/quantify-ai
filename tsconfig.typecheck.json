@@ -1,0 +1,32 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "paths": {
+      "@quantify/config": ["packages/config/src/index.ts"],
+      "@quantify/contracts": ["packages/contracts/src/index.ts"],
+      "@quantify/strategy-spec": ["packages/strategy-spec/src/index.ts"],
+      "@quantify/indicators": ["packages/indicators/src/index.ts"],
+      "@quantify/strategy-compiler": ["packages/strategy-compiler/src/index.ts"],
+      "@quantify/backtest-engine": ["packages/backtest-engine/src/index.ts"],
+      "@quantify/backtest-runner": ["packages/backtest-runner/src/index.ts"],
+      "@quantify/performance": ["packages/performance/src/index.ts"],
+      "@quantify/market-data": ["packages/market-data/src/index.ts"],
+      "@quantify/ai": ["packages/ai/src/index.ts"],
+      "@quantify/db": ["packages/db/src/index.ts"],
+      "@quantify/auth": ["packages/auth/src/index.ts"],
+      "@/*": ["apps/web/src/*"]
+    },
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "packages/*/src/**/*.ts",
+    "apps/*/src/**/*.ts",
+    "apps/web/**/*.ts",
+    "apps/web/**/*.tsx",
+    "scripts/**/*.ts",
+    "tests/**/*.ts"
+  ],
+  "exclude": ["**/node_modules", "**/.next", "**/dist"]
+}

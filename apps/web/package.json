@@ -1,0 +1,26 @@
+{
+  "name": "@quantify/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack -p 3000",
+    "build": "next build --webpack",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "@quantify/contracts": "workspace:*",
+    "@tanstack/react-query": "^5.90.5",
+    "lightweight-charts": "4.2.3",
+    "lucide-react": "^0.552.0",
+    "next": "16.4.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "@fontsource/instrument-sans": "^5.2.8",
+    "@fontsource/instrument-serif": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
