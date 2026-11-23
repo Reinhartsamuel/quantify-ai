@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { AIProviderError } from "@quantify/ai";
 import type { AuthService, AuthUser } from "@quantify/auth";
-import { hashToken } from "@quantify/auth";
+import { AuthError, hashToken } from "@quantify/auth";
 import { backtestConfigSchema } from "@quantify/backtest-engine";
 import type { Env } from "@quantify/config";
 import {
@@ -179,6 +179,13 @@ export function createApp(deps: AppDeps): Hono<{ Variables: Variables }> {
 
   app.onError((error, c) => {
     const requestId = c.get("requestId") ?? crypto.randomUUID();
+    if (error instanceof AuthError) {
+      const status = error.code === "CONFLICT" ? 409 : error.code === "VALIDATION_FAILED" ? 422 : 401;
+      return c.json<ApiError>(
+        { error: { code: error.code, message: error.message, requestId } },
+        status as 401,
+      );
+    }
     if (error instanceof ApiException) {
       const body: ApiError = {
         error: {

@@ -82,6 +82,21 @@ export function createPostgresClient(url: string, options: { max?: number } = {}
     idle_timeout: 20,
     connect_timeout: 10,
     prepare: false,
+    // postgres.js derives parameter OIDs from the statement (e.g. `$5::jsonb`) and then
+    // applies its json serialiser. The store layer already passes `JSON.stringify(...)`
+    // strings, so that produced double-encoded jsonb (jsonb_typeof = 'string') and every
+    // read came back as a string: `parseStrategySpec` then failed with
+    // "(root): Expected object, received string". Hand strings through untouched;
+    // objects/arrays are still serialised as JSON.
+    types: {
+      json: {
+        to: 3802,
+        from: [114, 3802],
+        serialize: (value: unknown) =>
+          typeof value === "string" ? value : JSON.stringify(value),
+        parse: (value: string) => JSON.parse(value),
+      },
+    },
   });
   return new PostgresClient(sql);
 }
